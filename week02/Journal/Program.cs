@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal2 journal = new Journal2();
+        Journal journal = new Journal();
         bool run = true;
         while (run)
         {
@@ -18,20 +18,20 @@ class Program
             switch (input)
             {
                 case "1":
-                    // Automatisch aktuelles Datum setzen
+                   
                     string date = DateTime.Now.ToString("yyyy-MM-dd");
 
-                    // Zufälligen Prompt generieren und anzeigen
-                    PromptGenerator2 promptGenerator = new PromptGenerator2();
+                   
+                    PromptGenerator promptGenerator = new PromptGenerator();
                     string promptText = promptGenerator.GetRandomPrompt();
                     Console.WriteLine("Prompt: " + promptText);
 
-                    // Eintragstext eingeben
+                 
                     Console.Write(">");
                     string entryText = Console.ReadLine();
 
-                    // Neuen Eintrag erstellen und dem Journal hinzufügen
-                    Entry2 newEntry = new Entry2
+                   
+                    Entry newEntry = new Entry
                     {
                         _date = date,
                         _promptText = promptText,
@@ -40,7 +40,7 @@ class Program
                     journal.AddEntry(newEntry);
                     break;
                 case "2":
-                    // Alle Einträge anzeigen
+                 
                     journal.DisplayAll();
                     break;
                 case "3":
