@@ -18,29 +18,40 @@ class Program
             switch (input)
             {
                 case "1":
-                   
                     string date = DateTime.Now.ToString("yyyy-MM-dd");
 
-                   
                     PromptGenerator promptGenerator = new PromptGenerator();
                     string promptText = promptGenerator.GetRandomPrompt();
                     Console.WriteLine("Prompt: " + promptText);
 
-                 
-                    Console.Write(">");
+                    Console.Write("Enter Title: ");
+                    string title = Console.ReadLine();
+
+                    Console.Write("Enter Mood: ");
+                    string mood = Console.ReadLine();
+
+                    Console.Write("Enter Tags (comma separated): ");
+                    string tags = Console.ReadLine();
+
+                    Console.Write("Enter Location: ");
+                    string location = Console.ReadLine();
+
+                    Console.Write("Write your entry: ");
                     string entryText = Console.ReadLine();
 
-                   
                     Entry newEntry = new Entry
                     {
                         _date = date,
+                        _title = title,
                         _promptText = promptText,
-                        _entryText = entryText
+                        _entryText = entryText,
+                        _mood = mood,
+                        _tags = tags,
+                        _location = location
                     };
                     journal.AddEntry(newEntry);
                     break;
                 case "2":
-                 
                     journal.DisplayAll();
                     break;
                 case "3":

@@ -21,19 +21,19 @@ public class Journal
         foreach (var entry in _Entries)
         {
             entry.Display();
-            Console.WriteLine(); 
-        }  
+            Console.WriteLine();
+        }
     }
 
     public void SaveToFile(string file)
     {
         using (StreamWriter writer = new StreamWriter(file))
         {
-            writer.WriteLine("Date,Prompt,Entry");
+            
+            writer.WriteLine("Date,Title,Prompt,Entry,Mood,Tags,Location");
             foreach(var entry in _Entries)
             {
-                
-                writer.WriteLine($"{entry._date},{entry._promptText},{entry._entryText}");
+                writer.WriteLine($"{entry._date},{entry._title},{entry._promptText},{entry._entryText},{entry._mood},{entry._tags},{entry._location}");
             }
         }
         Console.WriteLine("Journal saved to " + file);
@@ -51,15 +51,18 @@ public class Journal
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                   
-                    string[] parts = line.Split(new char[] { ',' }, 3);
-                    if (parts.Length == 3)
+                    string[] parts = line.Split(new char[] { ',' }, 7);
+                    if (parts.Length == 7)
                     {
                         Entry entry = new Entry
                         {
                             _date = parts[0],
-                            _promptText = parts[1],
-                            _entryText = parts[2]
+                            _title = parts[1],
+                            _promptText = parts[2],
+                            _entryText = parts[3],
+                            _mood = parts[4],
+                            _tags = parts[5],
+                            _location = parts[6]
                         };
                         _Entries.Add(entry);
                     }
