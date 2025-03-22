@@ -1,5 +1,7 @@
 using System;
 
+
+
 public class Word
 {
     private string _text;
@@ -9,6 +11,7 @@ public class Word
     {
         _text = text;
     }
+
 
     public void Hide()
     {
@@ -29,13 +32,14 @@ public class Word
     {
         if (_isHidden)
         {
-            return "______";
+           
+
+            return new string('_', _text.Length);
         }
         else
         {
             return _text;
         }
     }
+
 }
-
-

@@ -3,6 +3,7 @@ public class Reference
 {
     private string _book;
     private int _chapter;
+
     private int _verse;
     private int _verseEnd;
 
@@ -10,6 +11,7 @@ public class Reference
     {
         _book = book;
         _chapter = chapter;
+
         _verse = verse;
     }
 
@@ -24,9 +26,11 @@ public class Reference
     public string GetDislpayText()
     {
         string text = $"{_book} {_chapter}:{_verse}";
+        if (_verseEnd != 0 && _verseEnd != _verse)
+        
+        {
+            text += $"-{_verseEnd}";
+        }
         return text;
     }
-
 }
-
-
