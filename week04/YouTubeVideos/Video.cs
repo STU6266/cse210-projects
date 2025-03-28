@@ -1,40 +1,50 @@
+using System;
 using System.Collections.Generic;
 
-namespace VideoProjekt
+namespace VideoProject
 {
     public class Video
     {
-        // Private Membervariablen
         private string title;
         private string author;
-        private int length; // Länge in Sekunden
+        private int length;
         private List<Comment> comments;
 
-        // Konstruktor
         public Video(string title, string author, int length)
         {
-            // TODO: Initialisiere die Membervariablen
+
+            this.title = title;
+            this.author = author;
+            
+            this.length = length;
+            this.comments = new List<Comment>();
         }
 
-        // Methoden
+        public string Title { get { return title; } }
 
-        // Fügt einen Kommentar hinzu
         public void AddComment(Comment comment)
         {
-            // TODO: Kommentar zur Liste hinzufügen
+            comments.Add(comment);
         }
 
-        // Gibt die Anzahl der Kommentare zurück
         public int GetNumberOfComments()
         {
-            // TODO: Anzahl der Kommentare zurückgeben
-            return 0;
+            return comments.Count;
         }
 
-        // Gibt die Videodetails inkl. Kommentaren aus
         public void DisplayVideoDetails()
         {
-            // TODO: Videodetails und Kommentare anzeigen
+            Console.WriteLine($"Title: {title}");
+            Console.WriteLine($"Author: {author}");
+
+            Console.WriteLine($"Length: {length} secounds");
+            Console.WriteLine($"Nummber of comments: {GetNumberOfComments()}");
+            Console.WriteLine("Comments:");
+            foreach (Comment comment in comments)
+            {
+                comment.DisplayComment();
+            }
+            Console.WriteLine("------------ -----------------------");
         }
     }
 }

@@ -1,41 +1,47 @@
 using System.Collections.Generic;
 
-namespace VideoProjekt
+namespace VideoProject
 {
     public class VideoManager
     {
-        // Private Membervariablen
+        
         private List<Video> videos;
 
-        // Konstruktor
         public VideoManager()
         {
-            // TODO: Initialisiere die Videos-Liste
+            videos = new List<Video>();
         }
 
-        // Fügt ein Video der Sammlung hinzu
         public void AddVideo(Video video)
         {
-            // TODO: Video zur Liste hinzufügen
+            videos.Add(video);
         }
 
-        // Entfernt ein Video aus der Sammlung
         public void RemoveVideo(Video video)
         {
-            // TODO: Video aus der Liste entfernen
+
+            videos.Remove(video);
         }
 
-        // Sucht ein Video anhand des Titels
         public Video GetVideoByTitle(string title)
         {
-            // TODO: Suche nach Video anhand des Titels
+            foreach (Video video in videos)
+            {
+
+                if (video.Title == title)
+                {
+                    return video;
+                }
+            }
             return null;
         }
 
-        // Zeigt alle Videos mit ihren Details an
         public void DisplayAllVideos()
         {
-            // TODO: Details aller Videos anzeigen
+            foreach (Video video in videos)
+            {
+                video.DisplayVideoDetails();
+            }
         }
     }
 }

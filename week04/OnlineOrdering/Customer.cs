@@ -2,25 +2,22 @@ namespace OrderSystem
 {
     public class Customer
     {
-        // Private Membervariablen
         private string name;
-        private Address address;
-
-        // Konstruktor
+        private Address address ;
+ 
         public Customer(string name, Address address)
         {
-            // TODO: Initialisiere die Membervariablen
+            this.name = name;
+
+            this.address = address;
         }
 
-        // Methoden
-
-        // Gibt zurück, ob der Kunde in den USA wohnt (unter Verwendung der Address-Methode)
         public bool LivesInUSA()
         {
-            // TODO: Nutze address.IsInUSA() und gib das Ergebnis zurück
-            return false;
+            return address.IsInUSA();
         }
 
-        // Zusätzliche Getter und Setter falls benötigt
+        public string Name { get { return name; } }
+        public Address Address { get { return address; }  }
     }
 }

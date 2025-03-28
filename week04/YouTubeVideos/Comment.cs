@@ -1,21 +1,23 @@
-namespace VideoProjekt
+using System;
+
+namespace VideoProject
 {
+    
     public class Comment
     {
-        // Private Membervariablen
         private string commenterName;
         private string commentText;
 
-        // Konstruktor
         public Comment(string commenterName, string commentText)
         {
-            // TODO: Initialisiere die Membervariablen
+
+            this.commenterName = commenterName;
+            this.commentText = commentText;
         }
 
-        // Methode zur Anzeige des Kommentars
         public void DisplayComment()
         {
-            // TODO: Kommentar anzeigen
+            Console.WriteLine($"{commenterName}: {commentText}");
         }
     }
 }
