@@ -19,12 +19,13 @@ class Program
 
         if (choice == 1)
         {
-            //<Datentyp> <Variablenname> = new <Konstruktor>();
+            
             BreathingActivity breathingActivity = new BreathingActivity();
             breathingActivity.Run();
         }
         else if (choice == 2)
         {
+
             ReflectingActivity reflectingActivity = new ReflectingActivity();
             reflectingActivity.Run();
         }
@@ -40,7 +41,7 @@ class Program
         }
         else
         {
-            Console.WriteLine("Invalid choice. Please try again.");
+            Console.WriteLine("Invalid choice. Pleas try again.");
         }
     }   
  

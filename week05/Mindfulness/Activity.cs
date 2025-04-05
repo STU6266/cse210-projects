@@ -11,14 +11,15 @@ public class Activity
     {
         _name = name;
         _description = description;
-        _duration = duration;
+        _duration = duration ;
     }
 
     public void DisplayStartMessage()
     {
         Console.WriteLine($"Welcome to the {_name} activity!");
         Console.WriteLine(_description);
-        Console.WriteLine("How long, in seconds, would you like for your session?");
+
+        Console.WriteLine("How long, in seconds, would you like for your sesion?");
         _duration = int.Parse(Console.ReadLine());
         Console.WriteLine($"You have chosen a duration of {_duration} seconds.");
         Console.WriteLine("Get ready...");
@@ -30,7 +31,8 @@ public class Activity
         Console.WriteLine($"Well done!");
         Thread.Sleep(3000);
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name} activity.");
-        Thread.Sleep(3000);
+        
+        Thread.Sleep(3000) ;
     }
 
     public void ShowSpinner(int seconds)
@@ -51,7 +53,7 @@ public class Activity
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.Write(i);
+            Console.Write(i );
             Thread.Sleep(1000);
             Console.Write("\b \b"); 
         }  

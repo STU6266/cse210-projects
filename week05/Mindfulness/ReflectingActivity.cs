@@ -16,7 +16,7 @@ public class ReflectingActivity : Activity
         "Have you ever done anything like this before?",
         "How did you get started?",
         "How did you feel when it was complete?",
-        "What made this time different than other times when you were not as successful?",
+        "What made this time differnt than other times when you were not as successful?",
         "What is your favorite thing about this experience?",
         "What could you learn from this experience that applies to other situations?",
         "What did you learn about yourself through this experience?",
@@ -28,10 +28,11 @@ public class ReflectingActivity : Activity
 
     public ReflectingActivity() : base(
         "Reflecting",
-        "This activity will help you relax by reflecting on your day. Clear your mind and focus on the question but don't forget your breathing.",
+        "This activity will help you relax by reflecting on your day. Clear your minde and focus on the question but don't forget your breathing.",
         0)
     {
         _unusedPrompts = new List<string>(_prompts);
+
         _unusedQuestions = new List<string>(_questions);
     }
 
@@ -42,7 +43,7 @@ public class ReflectingActivity : Activity
 
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-        while (DateTime.Now < endTime)
+        while (DateTime.Now <  endTime)
         {
             DisplayQuestion();
         }
@@ -74,7 +75,7 @@ public class ReflectingActivity : Activity
         Random random = new Random();
         int index = random.Next(0, _unusedQuestions.Count);
         string selected = _unusedQuestions[index];
-        _unusedQuestions.RemoveAt(index);
+        _unusedQuestions.RemoveAt (index);
         return selected;
     }
 

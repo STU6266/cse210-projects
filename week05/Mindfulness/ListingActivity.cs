@@ -10,14 +10,15 @@ public class ListingActivity : Activity
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
         "Who are people that you have helped this week?",
-        "When have you felt the Holy Ghost this month?",
+        "When have you felt the Holy Gost this month?",
         "Who are some of your personal heroes?"
     };
 
     private List<string> _unusedPrompts;
 
-    public ListingActivity() : base(
+    public ListingActivity()  : base(
         "Listing",
+
         "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.",
         0)
     {
@@ -45,7 +46,8 @@ public class ListingActivity : Activity
         Random random = new Random();
         int index = random.Next(0, _unusedPrompts.Count);
         string prompt = _unusedPrompts[index];
-        _unusedPrompts.RemoveAt(index);
+
+        _unusedPrompts.RemoveAt(index) ;
 
         Console.WriteLine("List as many responses as you can to the following prompt:");
         Console.WriteLine($"> {prompt}");
