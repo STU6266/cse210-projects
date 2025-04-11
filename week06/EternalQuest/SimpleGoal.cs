@@ -1,24 +1,36 @@
-
-
 public class SimpleGoal : Goal
 {
-    private bool _isCompliete;
+    private bool _isCompleted;
 
-    public SimpleGoal(string shortName, string description, string points) : base(shortName, description, points)
+    public SimpleGoal(string shortName, string description, string points)
+        : base(shortName, description, points)
     {
-        _isCompliete = false;
+        _isCompleted = false;
     }
+
     public override void RecordEvent()
     {
-        _isCompliete = true;
+        _isCompleted = true;
     }
+
     public override bool IsComplete()
     {
-        return _isCompliete;
+        return _isCompleted;
     }
-    public override string GStringRepresentation()
+
+    public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        string status = _isCompleted ? "[X]" : "[ ]";
+        return $"{status} {ShortName} ({Description})";
     }
-    
+
+    public override string GetDetailsString()
+    {
+        return GetStringRepresentation();
+    }
+
+    public override string Serialize()
+    {
+        return $"SimpleGoal|{ShortName}|{Description}|{Points}|{_isCompleted}";
+    }
 }
